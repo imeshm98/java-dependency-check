@@ -22,12 +22,11 @@ jobs:
 
     - name: Build and generate license reports
       run: |
-        cd ./report/
-        mvn clean package
-        mvn dependency:license
+        cd ./target/site/
+        mvn license:third-party-report
 
     - name: Store license reports as artifacts
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3
       with:
         name: license-reports
-        path: ./report/
+        path: ./target/site/
