@@ -23,9 +23,10 @@ jobs:
     - name: Build and generate license reports
       run: |
         mvn license:third-party-report
+        mv target report
 
     - name: Store license reports as artifacts
       uses: actions/upload-artifact@v3
       with:
         name: license-reports
-        path: ./target/site/
+        path: ./report/site/
