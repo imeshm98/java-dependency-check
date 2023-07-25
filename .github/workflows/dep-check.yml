@@ -22,7 +22,6 @@ jobs:
 
     - name: Build and generate license reports
       run: |
-        cd ./target/site/
         mvn license:third-party-report
 
     - name: Store license reports as artifacts
