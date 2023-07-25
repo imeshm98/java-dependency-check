@@ -1,4 +1,4 @@
-name: License Check
+name: Dependency License Check
 
 on:
   push:
