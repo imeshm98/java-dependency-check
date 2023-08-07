@@ -49,10 +49,12 @@ jobs:
         docker build . -t imeshdocker/dep-check:${SHORT_SHA}
         docker push imeshdocker/dep-check:${SHORT_SHA}
 
-    - name: Install Trivy
-      uses: aquasecurity/trivy@v0.44.0  # You can replace this version with the latest available
-      with:
-        image-ref: alpine  # Choose the base image for Trivy scanning (alpine is used here as an example)
+    # - name: Install Trivy
+    #   uses: aquasecurity/trivy@v0.44.0  # You can replace this version with the latest available
+    #   with:
+    #     image-ref: alpine  # Choose the base image for Trivy scanning (alpine is used here as an example)
 
     - name: Trivy Scan
-      run: trivy image --security-checks license --severity UNKNOWN,HIGH,CRITICAL imeshdocker/dep-check:${SHORT_SHA}
+      run: |
+        sudo apt-get install trivy
+        trivy image --security-checks license --severity UNKNOWN,HIGH,CRITICAL imeshdocker/dep-check:${SHORT_SHA}
