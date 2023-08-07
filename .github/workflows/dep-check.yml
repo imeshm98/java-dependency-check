@@ -54,10 +54,10 @@ jobs:
     #   with:
     #     image-ref: alpine  # Choose the base image for Trivy scanning (alpine is used here as an example)
 
-    - name: Trivy Scan
-      run: |
-        sudo apt-get install trivy
-        trivy image --security-checks license --severity UNKNOWN,HIGH,CRITICAL imeshdocker/dep-check:${SHORT_SHA}
+    # - name: Trivy Scan
+    #   run: |
+    #     sudo apt-get install trivy
+    #     trivy image --security-checks license --severity UNKNOWN,HIGH,CRITICAL imeshdocker/dep-check:${SHORT_SHA}
 
     - name: Trivy Scan
       run: |
