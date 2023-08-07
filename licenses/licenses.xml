@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<licenses>
+    <valid>
+        <license>
+            <name>The Apache Software License, Version 2.0</name>
+            <urls>
+                <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            </urls>
+        </license>
+    </valid>
+    <forbidden>
+        <license>
+            <name>GNU General Public License version 2</name>
+            <urls>
+                <url>https://opensource.org/licenses/gpl-2.0.php</url>
+            </urls>
+        </license>
+    </forbidden>
+</licenses>

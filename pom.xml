@@ -39,27 +39,54 @@
             <artifactId>spring-boot-starter-security</artifactId>
             <version>2.5.4</version>
         </dependency>
+
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-classic</artifactId>
+			<version>1.4.8</version>
+		</dependency>
 	</dependencies>
 
 	<build>
 		<plugins>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>license-maven-plugin</artifactId>
 				<version>2.2.0</version>
 				<executions>
 					<execution>
-						<id>generate-license</id>
+						<id>add-third-party</id>
+						<phase>compile</phase>
 						<goals>
-							<goal>third-party-report</goal> <!-- Use the correct goal: third-party-report -->
+							<goal>add-third-party</goal>
 						</goals>
+						<configuration>
+                            <excludedGroups>com.globalsport.*</excludedGroups>
+                            <failOnBlacklist>true</failOnBlacklist>
+                            <includedLicenses>license.txt</includedLicenses>
+                        </configuration>
 					</execution>
 				</executions>
 			</plugin>
+			<!-- <plugin>
+				<groupId>se.ayoy.maven-plugins</groupId>
+				<artifactId>ayoy-license-verifier-maven-plugin</artifactId>
+				<version>1.0.1</version>
+				<executions>
+					<execution>
+						<phase>compile</phase>
+						<goals>
+							<goal>verify</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<licenseFile>${project.basedir}/licenses/licenses.xml</licenseFile>
+					<failOnForbidden>true</failOnForbidden>
+					<failOnMissing>true</failOnMissing>
+					<failOnUnknown>true</failOnUnknown>
+				</configuration>
+			</plugin> -->
 		</plugins>
 		<finalName>dep-check</finalName>
 	</build>
