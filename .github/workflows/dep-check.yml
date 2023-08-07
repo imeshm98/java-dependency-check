@@ -58,3 +58,9 @@ jobs:
       run: |
         sudo apt-get install trivy
         trivy image --security-checks license --severity UNKNOWN,HIGH,CRITICAL imeshdocker/dep-check:${SHORT_SHA}
+
+    - name: Trivy Scan
+      run: |
+        wget https://github.com/aquasecurity/trivy/releases/download/v0.33.0/trivy_0.33.0_Linux-64bit.deb
+        sudo dpkg -i trivy_0.33.0_Linux-64bit.deb
+        trivy image --security-checks license --severity UNKNOWN,HIGH,CRITICAL imeshdocker/dep-check:${SHORT_SHA}
