@@ -1,9 +1,10 @@
 name: Fossa License Check
 
 on:
-  push:
+  pull_request:
     branches:
       - main
+      
 jobs:
   fossa-scan:
     runs-on: ubuntu-latest
